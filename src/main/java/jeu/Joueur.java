@@ -24,4 +24,8 @@ public class Joueur {
         this.equipage = new ArrayList<>();
     }
 
+    public String getPseudo(){
+        return this.pseudo;
+    }
+
 }

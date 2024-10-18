@@ -8,4 +8,10 @@ public class Terre {
     private Gains gains;
     private int[] gainsImmediat;
 
+    public Terre(int[] coutExploration, Gains gains, int[] gainsImmediat) {
+        this.coutExploration = coutExploration;
+        this.gains = gains;
+        this.gainsImmediat = gainsImmediat;
+    }
+
 }
