@@ -1,3 +1,7 @@
+package cartes;
+
+import gains.Gains;
+
 public class Bateau {
 
     private int pointsRecrue;

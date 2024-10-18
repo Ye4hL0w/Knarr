@@ -1,3 +1,5 @@
+package gains;
+
 public class Gains {
     private int gain1;
 

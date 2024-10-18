@@ -1,3 +1,4 @@
+package jeu;
 
 import cartes.TerreEchange;
 import cartes.TerreInfluence;

@@ -1,4 +1,6 @@
+package jeu;
 
+import cartes.Bateau;
 import cartes.Viking;
 
 import java.util.ArrayList;
@@ -18,8 +20,8 @@ public class Joueur {
         this.bateau = bateau;
         this.pointsVictoire = 0;
         this.pointsReputation = 0;
-        this.main = new ArrayList<Viking>();
-        this.equipage = new ArrayList<Viking>();
+        this.main = new ArrayList<>();
+        this.equipage = new ArrayList<>();
     }
 
 }

@@ -1,5 +1,7 @@
 package cartes;
 
+import gains.Gains;
+
 public class Terre {
 
     private int[] coutExploration;
