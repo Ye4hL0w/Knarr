@@ -1,3 +1,8 @@
+
+import cartes.TerreEchange;
+import cartes.TerreInfluence;
+import cartes.Viking;
+
 import java.util.List;
 
 public class Plateau {

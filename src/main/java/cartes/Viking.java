@@ -1,3 +1,5 @@
+package cartes;
+
 public class Viking {
 
     private int couleur;
