@@ -2,6 +2,7 @@ package referentiels;
 
 public class ReferentielGains {
 
+    static int VIDE = -1;
     static int POINT_VICTOIRE = 0;
     static int POINT_RECRUE = 1;
     static int POINT_BRACELET = 2;

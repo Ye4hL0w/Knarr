@@ -6,11 +6,15 @@ import java.util.Scanner;
 
 public class GUI {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
         affichageDebutJeu();
-        int nbJoueurs = demanderNombreJoueurs();
-        Plateau plateau = initialiserPlateau(nbJoueurs);
+        int nbJoueurs = demanderNombreJoueurs(sc);
+        boolean modeJeu = demanderModeJeu(sc);
+        Plateau plateau = initialiserPlateau(nbJoueurs, modeJeu);
         afficherJoueurs(plateau.getJoueurs());
+
+        sc.close();
 
     }
 
@@ -20,8 +24,7 @@ public class GUI {
         System.out.println("=====================================");
     }
 
-    private static int demanderNombreJoueurs() {
-        Scanner sc = new Scanner(System.in);
+    private static int demanderNombreJoueurs(Scanner sc) {
         int nbJoueurs;
 
         do {
@@ -33,20 +36,38 @@ public class GUI {
             }
         } while (nbJoueurs < 2 || nbJoueurs > 4);
 
-        sc.close();
+        sc.nextLine();
+
         return nbJoueurs;
     }
 
-    private static Plateau initialiserPlateau(int nbJoueurs) {
+    private static boolean demanderModeJeu(Scanner sc) {
+        String modeJeu;
+
+        do {
+            System.out.print("Entrez le mode de jeu (normal ou avance) : ");
+            modeJeu = sc.nextLine();
+
+            if (!modeJeu.equals("normal") && !modeJeu.equals("avance")) {
+                System.out.println("Erreur : Le mode de jeu doit être normal ou avance.");
+            }
+        } while (!modeJeu.equals("normal") && !modeJeu.equals("avance"));
+
+        return modeJeu.equals("normal");
+    }
+
+    private static Plateau initialiserPlateau(int nbJoueurs, boolean modeJeu) {
         Plateau plateau = new Plateau();
-        plateau.initialiserJoueur(nbJoueurs);
+        plateau.initialiserJeu(nbJoueurs, modeJeu);
         return plateau;
     }
 
     private static void afficherJoueurs(ArrayList<Joueur> joueurs) {
-        System.out.print("Les joueurs sont : ");
+        System.out.println("Les joueurs sont : ");
         for (Joueur joueur : joueurs) {
-            System.out.print(joueur.getPseudo()+ " ");
+            System.out.println("Nom : " + joueur.getPseudo());
+            //juste pour tester
+            System.out.println("Bateau : " + joueur.getBateau().toString());
         }
     }
 }

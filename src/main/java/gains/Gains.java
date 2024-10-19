@@ -13,4 +13,9 @@ public class Gains {
         this.gain3 = gain3;
     }
 
+    @Override
+    public String toString() {
+        return STR."Gains{gain1=\{gain1}, gain2=\{gain2}, gain3=\{gain3}\{'}'}";
+    }
+
 }

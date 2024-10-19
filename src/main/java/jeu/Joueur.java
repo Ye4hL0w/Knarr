@@ -28,4 +28,9 @@ public class Joueur {
         return this.pseudo;
     }
 
+    public Bateau getBateau(){
+        return this.bateau;
+    }
+
+
 }
