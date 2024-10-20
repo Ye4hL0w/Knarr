@@ -54,6 +54,7 @@ public class GUI {
             }
         } while (!modeJeu.equals("normal") && !modeJeu.equals("avance"));
 
+        System.out.println(modeJeu);
         return modeJeu.equals("normal");
     }
 

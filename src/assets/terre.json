@@ -1,0 +1,24 @@
+{
+  "terreEchange": {
+    "cartes": [
+      {
+        "id": 1,
+        "cout": {
+          "couleurs": ["VIOLET", "VIOLET", "VIOLET", "ROUGE", "ROUGE"]
+        },
+        "gain": {
+          "recompenses": ["VIDE", "VIDE", "POINT_VICTOIRE"]
+        },
+        "gainImmediat": {
+          "type": ["POINT_VICTOIRE", "PIOCHER_CARTE"],
+          "valeur": 8
+        }
+      },
+
+      {"cout": "ROUGE", "gain": "POINT_VICTOIRE", "gainImmediat": 3}
+    ],
+    "influence": [
+      {"cout": "JAUNE", "gain": "POINT_VICTOIRE", "gainImmediat": 4}
+    ]
+  }
+}

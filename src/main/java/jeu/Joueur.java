@@ -32,5 +32,15 @@ public class Joueur {
         return this.bateau;
     }
 
-
+    @Override
+    public String toString() {
+        return "Joueur{" +
+                "pseudo='" + pseudo + '\'' +
+                ", bateau=" + bateau +
+                ", pointsVictoire=" + pointsVictoire +
+                ", pointsReputation=" + pointsReputation +
+                ", main=" + main +
+                ", equipage=" + equipage +
+                '}';
+    }
 }

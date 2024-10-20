@@ -14,6 +14,7 @@ import gains.Gains;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static enums.GainsEnum.*;
@@ -38,6 +39,8 @@ public class Plateau {
         this.joueurs = new ArrayList<>();
         this.vikings = new ArrayList<>();
         this.defausseVikings = new ArrayList<>();
+        this.terresEchange = new ArrayList<>();
+        this.terreInfluence = new ArrayList<>();
     }
 
     public void initialiserJoueur(int nbJoueurs){
@@ -48,11 +51,12 @@ public class Plateau {
         while(i < nbJoueurs){
             Joueur joueur = new Joueur("BOT" + (i+1), new Bateau(1,1, gainsBateau));
             this.joueurs.add(joueur);
+            joueur.toString();
             i++;
         }
     }
 
-    public void initialiserVikings(int nbJoueurs){
+    public void initialiserVikings(int nbJoueurs) {
         String fichier = "src/assets/vikings.json";
 
         try {
@@ -78,10 +82,16 @@ public class Plateau {
         }
     }
 
+    public void initialiserTerreEchange() {
+    }
+
+    public void initialiserTerreInfluence() {
+    }
+
     public void initialiserJeu(int nbJoueurs, boolean modeAvance){
         this.modeAvance = modeAvance;
-        //initialiserTerreEchange();
-        //initialiserTerreInfluence();
+        initialiserTerreEchange();
+        initialiserTerreInfluence();
         initialiserVikings(nbJoueurs);
         initialiserJoueur(nbJoueurs);
     }
@@ -89,9 +99,4 @@ public class Plateau {
     public ArrayList<Joueur> getJoueurs(){
         return (ArrayList<Joueur>) this.joueurs;
     }
-
-
-
-
-
 }
