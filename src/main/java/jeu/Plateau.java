@@ -1,4 +1,9 @@
 package jeu;
+import enums.CouleursEnum;
+import enums.GainsEnum;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 
 import cartes.Bateau;
 import cartes.TerreEchange;
@@ -6,6 +11,8 @@ import cartes.TerreInfluence;
 import cartes.Viking;
 import gains.Gains;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +36,7 @@ public class Plateau {
 
     public Plateau(){
         this.joueurs = new ArrayList<>();
+        this.vikings = new ArrayList<>();
         this.defausseVikings = new ArrayList<>();
     }
 
@@ -44,11 +52,37 @@ public class Plateau {
         }
     }
 
+    public void initialiserVikings(int nbJoueurs){
+        String fichier = "src/assets/vikings.json";
+
+        try {
+            String contenuJson = new String(Files.readAllBytes(Paths.get(fichier)));
+            JSONObject jsonObj = new JSONObject(contenuJson);
+
+            JSONObject vikingsObj = jsonObj.getJSONObject("vikings");
+
+            JSONArray vikingsArray = vikingsObj.getJSONArray(String.valueOf(nbJoueurs));
+
+            for (int i = 0; i < vikingsArray.length(); i++) {
+                JSONObject vikingObj = vikingsArray.getJSONObject(i);
+                String couleur = vikingObj.getString("couleur");
+                String gain = vikingObj.getString("gain");
+                int count = vikingObj.getInt("count");
+
+                for (int j = 0; j < count; j++) {
+                    vikings.add(new Viking(CouleursEnum.valueOf(couleur), GainsEnum.valueOf(gain)));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void initialiserJeu(int nbJoueurs, boolean modeAvance){
         this.modeAvance = modeAvance;
         //initialiserTerreEchange();
         //initialiserTerreInfluence();
-        //initialiserVikings();
+        initialiserVikings(nbJoueurs);
         initialiserJoueur(nbJoueurs);
     }
 

@@ -1,3 +1,4 @@
+import cartes.Viking;
 import jeu.Joueur;
 import jeu.Plateau;
 
@@ -63,11 +64,10 @@ public class GUI {
     }
 
     private static void afficherJoueurs(ArrayList<Joueur> joueurs) {
-        System.out.println("Les joueurs sont : ");
+        System.out.print("Les joueurs sont : ");
         for (Joueur joueur : joueurs) {
-            System.out.println("Nom : " + joueur.getPseudo());
-            //juste pour tester
-            System.out.println("Bateau : " + joueur.getBateau().toString());
+            System.out.print(joueur.getPseudo() + " ");
         }
+        System.out.println();
     }
 }

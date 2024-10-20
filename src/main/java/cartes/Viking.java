@@ -13,4 +13,12 @@ public class Viking {
         this.gain = gain;
     }
 
+    @Override
+    public String toString() {
+        return "Viking{" +
+                "couleur=" + couleur +
+                ", gain=" + gain +
+                '}';
+    }
+
 }
