@@ -1,14 +1,16 @@
 package cartes;
 
+import enums.CouleursEnum;
+import enums.GainsEnum;
 import gains.Gains;
 
 public class Terre {
 
-    private int[] coutExploration;
+    private CouleursEnum[] coutExploration;
     private Gains gains;
-    private int[] gainsImmediat;
+    private GainsEnum[] gainsImmediat;
 
-    public Terre(int[] coutExploration, Gains gains, int[] gainsImmediat) {
+    public Terre(CouleursEnum[] coutExploration, Gains gains, GainsEnum[] gainsImmediat) {
         this.coutExploration = coutExploration;
         this.gains = gains;
         this.gainsImmediat = gainsImmediat;

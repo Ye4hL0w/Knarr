@@ -1,9 +1,11 @@
 package cartes;
 
+import enums.CouleursEnum;
+import enums.GainsEnum;
 import gains.Gains;
 public class TerreInfluence extends Terre {
 
-    public TerreInfluence(int[] coutExploration, Gains gains, int[] gainsImmediat) {
+    public TerreInfluence(CouleursEnum[] coutExploration, Gains gains, GainsEnum[] gainsImmediat) {
         super(coutExploration, gains, gainsImmediat);
     }
 }

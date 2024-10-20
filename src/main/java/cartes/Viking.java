@@ -1,11 +1,14 @@
 package cartes;
 
+import enums.CouleursEnum;
+import enums.GainsEnum;
+
 public class Viking {
 
-    private int couleur;
-    private int gain;
+    private CouleursEnum couleur;
+    private GainsEnum gain;
 
-    public Viking(int couleur, int gain) {
+    public Viking(CouleursEnum couleur, GainsEnum gain) {
         this.couleur = couleur;
         this.gain = gain;
     }

@@ -9,9 +9,12 @@ import gains.Gains;
 import java.util.ArrayList;
 import java.util.List;
 
+import static enums.GainsEnum.*;
+
 public class Plateau {
 
     private List<Joueur> joueurs;
+    private boolean modeAvance;
 
     private List<Bateau> bateaux;
     private List<TerreEchange> terresEchange;
@@ -26,31 +29,23 @@ public class Plateau {
 
     public Plateau(){
         this.joueurs = new ArrayList<>();
-        this.bateaux = new ArrayList<>();
         this.defausseVikings = new ArrayList<>();
     }
 
     public void initialiserJoueur(int nbJoueurs){
+        Gains gainsBateau;
+        gainsBateau = modeAvance ? new Gains(VIDE, POINT_RECRUE, VIDE)
+                : new Gains(POINT_VICTOIRE, VIDE, POINT_BRACELET);
         int i = 0;
         while(i < nbJoueurs){
-            Joueur joueur = new Joueur("BOT" + (i+1), bateaux.get(i));
+            Joueur joueur = new Joueur("BOT" + (i+1), new Bateau(1,1, gainsBateau));
             this.joueurs.add(joueur);
             i++;
         }
     }
 
-    public void initialiserBateau(int nbJoueurs, boolean normal){
-        Gains gains;
-        gains = normal ? new Gains(-1, 1, -1): new Gains(0, -1, 2);
-        while (bateaux.size() < nbJoueurs){
-            Bateau bateau = new Bateau(1,1, gains);
-            bateaux.add(bateau);
-        }
-    }
-
-
-    public void initialiserJeu(int nbJoueurs, boolean mode){
-        initialiserBateau(nbJoueurs, mode);
+    public void initialiserJeu(int nbJoueurs, boolean modeAvance){
+        this.modeAvance = modeAvance;
         //initialiserTerreEchange();
         //initialiserTerreInfluence();
         //initialiserVikings();
